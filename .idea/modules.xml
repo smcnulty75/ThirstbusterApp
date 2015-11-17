@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Thirstbuster.iml" filepath="$PROJECT_DIR$/Thirstbuster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThirstbusterApp.iml" filepath="$PROJECT_DIR$/ThirstbusterApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
