@@ -61,6 +61,8 @@
             android:background="#ff0000"
             android:clickable="true"
             android:layout_marginTop="50dp"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:nestedScrollingEnabled="true"
+            android:onClick="goToHistoryActivity" />
     </LinearLayout>
 </RelativeLayout>

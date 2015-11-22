@@ -30,5 +30,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(alarmIntent);
     }
 
+    public void goToHistoryActivity(View v) {
+
+    }
+
 
 }

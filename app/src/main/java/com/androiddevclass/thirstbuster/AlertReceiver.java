@@ -19,10 +19,11 @@ public class AlertReceiver extends BroadcastReceiver {
 
     public void createNotification(Context context, String msgTitle, String msgText, String msgAlert) {
 
-        PendingIntent notifIntent = PendingIntent.getActivity(context, 0, new Intent(context, MainActivity.class), 0);
+        PendingIntent notifIntent = PendingIntent.getActivity(context, 0, new Intent(context,
+                MainActivity.class), 0);
 
         NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(context)
-                //.setSmallIcon(R.drawable.glassofwater2)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(msgTitle)
                 .setTicker(msgAlert)
                 .setWhen(System.currentTimeMillis())

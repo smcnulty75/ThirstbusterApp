@@ -32,6 +32,9 @@
         <activity android:name=".AlarmActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <receiver
+            android:name="com.androiddevclass.thirstbuster.AlertReceiver">
+        </receiver>
     </application>
 
 </manifest>

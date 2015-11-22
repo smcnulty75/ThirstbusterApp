@@ -35,10 +35,10 @@ public class AlarmActivity extends AppCompatActivity {
 
         pendingIntent = PendingIntent.getBroadcast(this, 0, alertIntent, 0);
 
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                SystemClock.elapsedRealtime() + 6 * 1000, pendingIntent);
-//        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, AlarmManager.INTERVAL_HOUR,
-//                AlarmManager.INTERVAL_HOUR, pendingIntent);
+//        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+//                SystemClock.elapsedRealtime() + 6 * 1000, pendingIntent);
+        alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, AlarmManager.INTERVAL_HOUR,
+                AlarmManager.INTERVAL_HOUR, pendingIntent);
 
         Toast.makeText(getApplicationContext(), "The alarm is now on", Toast.LENGTH_LONG).show();
     }
