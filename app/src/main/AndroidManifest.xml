@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.androiddevclass.thirstbuster" >
 
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,13 +17,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WeightEntryActivity" >
+        <activity android:name=".WeightEntryActivity"
+            android:parentActivityName=".MainActivity" >
         </activity>
-        <activity android:name=".PregnantActivity" >
+        <activity android:name=".PregnantActivity"
+            android:parentActivityName=".WeightEntryActivity">
         </activity>
-        <activity android:name=".ActivityLevelActivity" >
+        <activity android:name=".ActivityLevelActivity"
+            android:parentActivityName=".WeightEntryActivity">
         </activity>
-        <activity android:name=".ResultsActivity" >
+        <activity android:name=".ResultsActivity"
+            android:parentActivityName=".ActivityLevelActivity">
+        </activity>
+        <activity android:name=".AlarmActivity"
+            android:parentActivityName=".MainActivity">
         </activity>
     </application>
 

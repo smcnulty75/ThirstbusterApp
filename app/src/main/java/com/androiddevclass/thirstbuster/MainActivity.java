@@ -17,11 +17,17 @@ public class MainActivity extends AppCompatActivity {
         entryBtn.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                            Intent entry = new Intent(v.getContext(),WeightEntryActivity.class);
-                                            startActivityForResult(entry,0);
+                                            Intent entry = new Intent(v.getContext(), WeightEntryActivity.class);
+                                            startActivityForResult(entry, 0);
                                         }
                                     }
         );
+
+    }
+
+    public void goToAlarmActivity(View v){
+        Intent alarmIntent = new Intent(this, AlarmActivity.class);
+        startActivity(alarmIntent);
     }
 
 
