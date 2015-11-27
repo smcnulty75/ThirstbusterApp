@@ -1,46 +1,59 @@
 package com.androiddevclass.thirstbuster;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Intent;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 public class WeightEntryActivity extends AppCompatActivity {
+
+    Button nextBtn;
+    EditText weight;
+    RadioButton femaleBtn;
+    RadioGroup genderRadioGroup;
+    int selectedValueId;
+    String weightValue;
+    int waterAmount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weight_entry);
 
-        Button nextBtn = (Button) findViewById(R.id.weightButton);
+        nextBtn = (Button) findViewById(R.id.weightButton);
+        femaleBtn = (RadioButton) findViewById(R.id.femaleRadioButton);
+        genderRadioGroup = (RadioGroup) findViewById(R.id.genderRadioGroup);
+        weight = (EditText) findViewById(R.id.weightEditText);
+
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //check that weight has been entered before proceeding
-                EditText weight = (EditText)findViewById(R.id.weightEditText);
-                if(weight.equals("000")){
-                    System.out.println("Please enter weight before proceeding.");
-                }
-                else {
-                    Button femaleBtn = (Button) findViewById(R.id.femaleRadioButton);
-
+                weightValue = weight.getText().toString();
+                if (weightValue.trim().equals("000") || weightValue == null) {
+                    Toast.makeText(getApplicationContext(), "Please enter a weight value", Toast.LENGTH_LONG).show();
+                } else {
+                    waterAmount = Integer.parseInt(weightValue) / 2;
                     //if female is selected, take me to the pregnancy screen
-                    if (femaleBtn.isSelected()) {
+                    selectedValueId = genderRadioGroup.getCheckedRadioButtonId();
+                    if (selectedValueId == femaleBtn.getId()) {
                         Intent female = new Intent(v.getContext(), PregnantActivity.class);
-                        startActivityForResult(female, 0);
+                        female.putExtra("waterValue", waterAmount);
+                        startActivity(female);
                     }
                     //else take me straight to the activity level screen
                     else {
                         Intent male = new Intent(v.getContext(), ActivityLevelActivity.class);
-                        startActivityForResult(male, 0);
+                        waterAmount += 16;
+                        male.putExtra("waterValue", waterAmount);
+                        startActivity(male);
                     }
                 }
             }
