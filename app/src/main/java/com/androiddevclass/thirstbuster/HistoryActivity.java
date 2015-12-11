@@ -13,6 +13,10 @@ import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
+/**
+ * Created by Curtis on 12/8/2015.
+ */
+
 public class HistoryActivity extends AppCompatActivity {
 
     private static final Random RANDOM = new Random();
@@ -79,7 +83,7 @@ public class HistoryActivity extends AppCompatActivity {
 
                     // sleep to slow down the add of entries
                     try {
-                        Thread.sleep(600);
+                        Thread.sleep(2000);
                     } catch (InterruptedException e) {
                         // manage error ...
                     }
