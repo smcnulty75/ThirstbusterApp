@@ -23,6 +23,16 @@ public class MainActivity extends AppCompatActivity {
                                     }
         );
 
+        Button historyBtn = (Button) findViewById(R.id.showHistoryButton);
+        historyBtn.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            Intent entry = new Intent(v.getContext(), HistoryActivity.class);
+                                            startActivityForResult(entry, 0);
+                                        }
+                                    }
+        );
+
     }
 
     public void goToAlarmActivity(View v){
